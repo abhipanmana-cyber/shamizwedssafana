@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Great+Vibes&family=Cinzel:wght@400;500;600&family=Lato:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Great+Vibes&family=Cinzel:wght@400;500;600&family=Lato:wght@300;4[...]
 @import "tailwindcss" source("../");
 
 :root {
@@ -207,6 +207,48 @@ body {
 }
 
 /* ──────────────────────────────────────── */
+/* Audio player button                     */
+/* ──────────────────────────────────────── */
+.audio-player-btn {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: none;
+  color: var(--maroon-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(139, 36, 56, 0.25);
+}
+.audio-player-btn:hover {
+  background: var(--gold-light);
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(139, 36, 56, 0.35);
+}
+.audio-player-btn:active {
+  transform: scale(0.95);
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .countdown-num { font-size: clamp(2rem, 12vw, 3rem); }
+  .silhouette-wrap { width: 180px; }
+  .audio-player-btn {
+    bottom: 24px;
+    left: 24px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ──────────────────────────────────────── */
 /* Noise texture overlay                   */
 /* ──────────────────────────────────────── */
 .noise-overlay {
@@ -215,7 +257,7 @@ body {
   pointer-events: none;
   z-index: 200;
   opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOct[...]
   background-size: 200px 200px;
 }
 
@@ -307,10 +349,4 @@ body {
 }
 .scroll-hint {
   animation: bounceDown 2s ease-in-out infinite;
-}
-
-/* Mobile responsive */
-@media (max-width: 640px) {
-  .countdown-num { font-size: clamp(2rem, 12vw, 3rem); }
-  .silhouette-wrap { width: 180px; }
 }
