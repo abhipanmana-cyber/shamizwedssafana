@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Great+Vibes&family=Cinzel:wght@400;500;600&family=Lato:wght@300;400&display=swap');
+@import "tailwindcss" source("../");
+
+:root {
+  --maroon: #6B1A2A;
+  --maroon-dark: #4A0F1C;
+  --maroon-mid: #8B2438;
+  --maroon-light: #B85070;
+  --ivory: #FAF6EF;
+  --ivory-dark: #F0E8DA;
+  --ivory-mid: #E8DDD0;
+  --gold: #C8A96E;
+  --gold-light: #DFC090;
+  --gold-dark: #A07840;
+  --text-dark: #2A1018;
+  --text-mid: #5A2030;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ──────────────────────────────────────── */
+/* Scrollsnap container                     */
+/* ──────────────────────────────────────── */
+.slide-container {
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.slide {
+  height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ──────────────────────────────────────── */
+/* Fonts                                   */
+/* ──────────────────────────────────────── */
+.font-script   { font-family: 'Great Vibes', cursive; }
+.font-serif    { font-family: 'Cormorant Garamond', serif; }
+.font-display  { font-family: 'Cinzel', serif; }
+.font-body     { font-family: 'Lato', sans-serif; }
+
+/* ──────────────────────────────────────── */
+/* Floral ornament (CSS-drawn)             */
+/* ──────────────────────────────────────── */
+.ornament-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ornament-line::before,
+.ornament-line::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* ──────────────────────────────────────── */
+/* Floral corner SVG borders               */
+/* ──────────────────────────────────────── */
+.floral-frame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ──────────────────────────────────────── */
+/* Slide 1 – Welcome                       */
+/* ──────────────────────────────────────── */
+.slide-welcome {
+  background: var(--maroon-dark);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%, #8B1A2C 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, #3A0810 0%, transparent 70%);
+}
+
+.silhouette-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  opacity: 0.18;
+}
+
+/* ──────────────────────────────────────── */
+/* Slide 2 – Invitation                    */
+/* ──────────────────────────────────────── */
+.slide-invitation {
+  background: var(--ivory);
+  background-image: radial-gradient(ellipse 70% 50% at 50% 50%, #F5EDE0 0%, var(--ivory) 80%);
+}
+
+/* ──────────────────────────────────────── */
+/* Slide 3 – Ceremony                      */
+/* ──────────────────────────────────────── */
+.slide-ceremony {
+  background: var(--ivory-dark);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 50%, #F0E0D0 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 50%, #EAD8C8 0%, transparent 60%);
+}
+
+/* ──────────────────────────────────────── */
+/* Slide 4 – Countdown                     */
+/* ──────────────────────────────────────── */
+.slide-countdown {
+  background: var(--maroon);
+  background-image:
+    radial-gradient(ellipse 100% 60% at 50% 0%, #8B2438 0%, transparent 60%),
+    radial-gradient(ellipse 80% 80% at 80% 100%, #4A0F1C 0%, transparent 60%);
+}
+
+/* ──────────────────────────────────────── */
+/* Slide 5 – Our Story                     */
+/* ──────────────────────────────────────── */
+.slide-story {
+  background: var(--maroon-dark);
+  background-image:
+    radial-gradient(ellipse 60% 80% at 30% 50%, #6B1A2A 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 70% 50%, #3A0810 0%, transparent 60%);
+}
+
+/* ──────────────────────────────────────── */
+/* Slide 6 – Venue                         */
+/* ──────────────────────────────────────── */
+.slide-venue {
+  background: var(--ivory);
+  background-image: radial-gradient(ellipse 80% 60% at 50% 0%, #F5EDE0 0%, var(--ivory) 70%);
+}
+
+/* ──────────────────────────────────────── */
+/* Countdown timer boxes                   */
+/* ──────────────────────────────────────── */
+.countdown-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.countdown-num {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 500;
+  color: var(--ivory);
+  line-height: 1;
+  min-width: 2ch;
+  text-align: center;
+}
+.countdown-label {
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+/* ──────────────────────────────────────── */
+/* Nav dots                                */
+/* ──────────────────────────────────────── */
+.nav-dots {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 100;
+}
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(200, 169, 110, 0.4);
+  border: 1px solid rgba(200, 169, 110, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.nav-dot.active {
+  background: var(--gold);
+  transform: scale(1.4);
+}
+
+/* ──────────────────────────────────────── */
+/* Noise texture overlay                   */
+/* ──────────────────────────────────────── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ──────────────────────────────────────── */
+/* Animations                              */
+/* ──────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes drawLine {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+@keyframes petalsFloat {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  33%      { transform: translateY(-12px) rotate(3deg); }
+  66%      { transform: translateY(-6px) rotate(-2deg); }
+}
+@keyframes shimmer {
+  0%,100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+@keyframes pulse-soft {
+  0%,100% { transform: scale(1); }
+  50%      { transform: scale(1.02); }
+}
+
+.anim-fadeInUp  { animation: fadeInUp 1s ease both; }
+.anim-fadeIn    { animation: fadeIn 1.2s ease both; }
+.anim-scaleIn   { animation: scaleIn 1s ease both; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-800 { animation-delay: 0.8s; }
+.delay-1000 { animation-delay: 1s; }
+
+/* ──────────────────────────────────────── */
+/* Google Maps embed button                */
+/* ──────────────────────────────────────── */
+.map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border: 1px solid var(--maroon);
+  color: var(--maroon);
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: transparent;
+  cursor: pointer;
+}
+.map-btn:hover {
+  background: var(--maroon);
+  color: var(--ivory);
+}
+
+/* ──────────────────────────────────────── */
+/* Decorative petal SVGs                   */
+/* ──────────────────────────────────────── */
+.petal-float {
+  animation: petalsFloat 6s ease-in-out infinite;
+}
+.petal-float:nth-child(2) { animation-delay: -2s; animation-duration: 7s; }
+.petal-float:nth-child(3) { animation-delay: -4s; animation-duration: 5s; }
+
+/* ──────────────────────────────────────── */
+/* Scroll hint arrow                       */
+/* ──────────────────────────────────────── */
+@keyframes bounceDown {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(8px); }
+}
+.scroll-hint {
+  animation: bounceDown 2s ease-in-out infinite;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .countdown-num { font-size: clamp(2rem, 12vw, 3rem); }
+  .silhouette-wrap { width: 180px; }
+}
