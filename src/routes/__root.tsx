@@ -1,4 +1,5 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+import { AudioPlayer } from '../components/AudioPlayer'
 import '../styles.css'
 
 export const Route = createRootRoute({
@@ -20,6 +21,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <AudioPlayer />
         {children}
         <Scripts />
       </body>
