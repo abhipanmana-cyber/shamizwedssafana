@@ -47,6 +47,15 @@ function GoldDivider({ light = false }: { light?: boolean }) {
   )
 }
 
+function TextBox({ title, body }: { title: string; body: string }) {
+  return (
+    <div className="info-text-box">
+      <p className="info-text-box-title">{title}</p>
+      <p className="info-text-box-body">{body}</p>
+    </div>
+  )
+}
+
 // ── Couple silhouette SVG ────────────────────────────────────────────────────
 function CoupleSilhouette() {
   return (
@@ -105,7 +114,7 @@ function FloatingPetals() {
   )
 }
 
-// ── Countdown Timer ──────────────────────────────────────────────────────────
+// ── Countdown Timer ────────────────────────────────────────────────────────
 function CountdownTimer() {
   const TARGET_MS = 1753245600000 // 2026-07-23T12:00:00+05:30
 
@@ -159,7 +168,7 @@ function CountdownTimer() {
   )
 }
 
-// ── Main component ───────────────────────────────────────────────────────────
+// ── Main component ────────────────────────────────────────────────────────
 function WeddingInvitation() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [activeSlide, setActiveSlide] = useState(0)
@@ -223,7 +232,7 @@ function WeddingInvitation() {
             <h2 className="font-script anim-fadeInUp delay-400" style={{ fontSize: 'clamp(3rem, 10vw, 6.5rem)', color: 'var(--ivory)', lineHeight: 1.1 }}>
               Shamiz A
             </h2>
-            <p className="font-serif anim-fadeInUp delay-500" style={{ fontSize: 'clamp(1rem, 3vw, 1.5rem)', color: 'var(--gold-light)', fontStyle: 'italic', letterSpacing: '0.15em', margin: '6px 0' }}>
+            <p className="font-serif anim-fadeInUp delay-500" style={{ fontSize: 'clamp(1rem, 3vw, 1.5rem)', color: 'var(--gold-light)', fontStyle: 'italic', letterSpacing: '0.15em', margin: '6px 0 14px' }}>
               &amp;
             </p>
             <h2 className="font-script anim-fadeInUp delay-600" style={{ fontSize: 'clamp(3rem, 10vw, 6.5rem)', color: 'var(--ivory)', lineHeight: 1.1 }}>
@@ -261,7 +270,9 @@ function WeddingInvitation() {
             </p>
 
             <h2 className="font-script anim-fadeInUp delay-200" style={{ fontSize: 'clamp(3rem, 10vw, 6rem)', color: 'var(--maroon)', lineHeight: 1.1 }}>Shamiz A</h2>
-            <p className="font-serif anim-fadeInUp delay-300" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', color: 'var(--gold-dark)', fontStyle: 'italic', letterSpacing: '0.1em', margin: '4px 0' }}>&amp;</p>
+            <p className="font-serif anim-fadeInUp delay-300" style={{ fontSize: 'clamp(1.2rem, 3vw, 1.8rem)', color: 'var(--gold-dark)', fontStyle: 'italic', letterSpacing: '0.1em', margin: '4px 0 10px' }}>
+              &amp;
+            </p>
             <h2 className="font-script anim-fadeInUp delay-400" style={{ fontSize: 'clamp(3rem, 10vw, 6rem)', color: 'var(--maroon)', lineHeight: 1.1 }}>Safana Hashim</h2>
 
             <div style={{ margin: '28px 0' }} className="anim-fadeInUp delay-500"><GoldDivider /></div>
@@ -279,7 +290,7 @@ function WeddingInvitation() {
         <div className="slide slide-ceremony" ref={(el) => { slideRefs.current[2] = el }}>
           <FloatingPetals />
           <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '0 24px', maxWidth: '560px', width: '100%' }}>
-            <div style={{ background: 'rgba(255,252,248,0.85)', backdropFilter: 'blur(8px)', border: '1px solid rgba(200,169,110,0.4)', padding: 'clamp(32px, 6vw, 64px) clamp(24px, 6vw, 60px)', position: 'relative', boxShadow: '0 20px 60px rgba(106,26,42,0.1)' }}>
+            <div style={{ background: 'rgba(255,252,248,0.85)', backdropFilter: 'blur(8px)', border: '1px solid rgba(200,169,110,0.4)', padding: 'clamp(32px, 6vw, 64px) clamp(24px, 6vw, 60px)', position: 'relative', boxShadow: '0 20px 60px rgba(106,26,42,0.08)' }}>
               <div style={{ position: 'absolute', top: -1, left: -1 }}><FloralCorner color="#C8A96E" size={60} /></div>
               <div style={{ position: 'absolute', top: -1, right: -1, transform: 'scaleX(-1)' }}><FloralCorner color="#C8A96E" size={60} /></div>
               <div style={{ position: 'absolute', bottom: -1, left: -1, transform: 'scaleY(-1)' }}><FloralCorner color="#C8A96E" size={60} /></div>
@@ -287,11 +298,15 @@ function WeddingInvitation() {
 
               <p className="font-display anim-fadeInUp" style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.75rem)', letterSpacing: '0.35em', color: 'var(--gold-dark)', marginBottom: '20px' }}>✦ YOU ARE INVITED ✦</p>
 
-              <h2 className="font-display anim-fadeInUp delay-100" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.2rem)', fontWeight: 600, color: 'var(--maroon)', letterSpacing: '0.15em', marginBottom: '28px' }}>WEDDING CEREMONY</h2>
+              <h2 className="font-display anim-fadeInUp delay-100" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.2rem)', fontWeight: 600, color: 'var(--maroon)', letterSpacing: '0.15em', marginBottom: '20px' }}>
+                WEDDING CEREMONY
+              </h2>
 
               <div className="anim-fadeInUp delay-200" style={{ marginBottom: '28px' }}><GoldDivider /></div>
 
-              <p className="font-display anim-fadeInUp delay-300" style={{ fontSize: 'clamp(0.75rem, 2vw, 0.9rem)', letterSpacing: '0.2em', color: 'var(--maroon)', marginBottom: '6px' }}>Thursday, July 23, 2026</p>
+              <TextBox title="A joyful evening" body="Join us for a heartfelt ceremony filled with blessings, laughter, and the beginning of our forever." />
+
+              <p className="font-display anim-fadeInUp delay-300" style={{ fontSize: 'clamp(0.75rem, 2vw, 0.9rem)', letterSpacing: '0.2em', color: 'var(--maroon)', marginBottom: '6px', marginTop: '28px' }}>Thursday, July 23, 2026</p>
               <p className="font-serif anim-fadeInUp delay-400" style={{ fontSize: 'clamp(0.85rem, 2vw, 1rem)', fontStyle: 'italic', color: 'var(--gold-dark)', marginBottom: '28px' }}>Safar 08, 1448</p>
 
               <div className="anim-scaleIn delay-400" style={{ background: 'var(--maroon)', padding: '16px 32px', marginBottom: '28px', display: 'inline-block' }}>
@@ -305,7 +320,9 @@ function WeddingInvitation() {
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="var(--gold)" opacity="0.7" />
                   <circle cx="12" cy="9" r="2.5" fill="var(--ivory)" />
                 </svg>
-                <p className="font-display anim-fadeInUp delay-500" style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.2rem)', fontWeight: 500, color: 'var(--maroon)', letterSpacing: '0.1em', marginBottom: '4px' }}>Royal Auditorium</p>
+                <p className="font-display anim-fadeInUp delay-500" style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.2rem)', fontWeight: 500, color: 'var(--maroon)', letterSpacing: '0.1em', marginBottom: '4px' }}>
+                  Royal Auditorium
+                </p>
                 <p className="font-serif anim-fadeInUp delay-600" style={{ fontSize: 'clamp(0.85rem, 2vw, 1rem)', fontStyle: 'italic', color: 'var(--text-mid)' }}>Ayathil, Kollam</p>
               </div>
             </div>
@@ -323,8 +340,10 @@ function WeddingInvitation() {
 
           <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', padding: '0 24px', maxWidth: '700px', width: '100%' }}>
             <p className="font-display anim-fadeInUp" style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.75rem)', letterSpacing: '0.4em', color: 'var(--gold)', marginBottom: '16px' }}>✦ COUNTING THE MOMENTS ✦</p>
-            <h2 className="font-display anim-fadeInUp delay-100" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.2rem)', fontWeight: 500, color: 'var(--ivory)', letterSpacing: '0.2em', marginBottom: '12px' }}>WEDDING COUNTDOWN</h2>
-            <p className="font-serif anim-fadeInUp delay-200" style={{ fontSize: 'clamp(0.85rem, 2vw, 1.05rem)', fontStyle: 'italic', color: 'var(--gold-light)', marginBottom: '36px' }}>July 23, 2026 · 12:00 PM IST</p>
+            <h2 className="font-display anim-fadeInUp delay-100" style={{ fontSize: 'clamp(1.4rem, 4vw, 2.2rem)', fontWeight: 500, color: 'var(--ivory)', letterSpacing: '0.2em', marginBottom: '12px' }}>
+              OUR BIG DAY
+            </h2>
+            <p className="font-serif anim-fadeInUp delay-200" style={{ fontSize: 'clamp(0.85rem, 2vw, 1.05rem)', fontStyle: 'italic', color: 'var(--gold-light)', marginBottom: '36px' }}>July 23, 2026</p>
 
             <div className="anim-scaleIn delay-300" style={{ marginBottom: '48px' }}>
               <CountdownTimer />
@@ -332,9 +351,9 @@ function WeddingInvitation() {
 
             <div style={{ marginBottom: '32px' }}><GoldDivider light /></div>
 
-            <p className="font-display anim-fadeInUp delay-400" style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.72rem)', letterSpacing: '0.3em', color: 'var(--gold)', marginBottom: '14px' }}>A NOTE FOR YOU</p>
+            <p className="font-display anim-fadeInUp delay-400" style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.72rem)', letterSpacing: '0.3em', color: 'var(--gold)', marginBottom: '14px' }}>A NOTE FROM US</p>
 
-            <p className="font-serif anim-fadeInUp delay-500" style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)', fontStyle: 'italic', color: 'rgba(250,246,239,0.85)', lineHeight: 1.8, maxWidth: '480px', margin: '0 auto' }}>
+            <p className="font-serif anim-fadeInUp delay-500" style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)', fontStyle: 'italic', color: 'rgba(250,246,239,0.85)', lineHeight: 1.8, maxWidth: '520px', margin: '0 auto' }}>
               "Together with our families, we joyfully invite you to witness the union of two souls and celebrate with us on our wedding day."
             </p>
           </div>
@@ -344,8 +363,12 @@ function WeddingInvitation() {
         <div className="slide slide-story" ref={(el) => { slideRefs.current[4] = el }}>
           <FloatingPetals />
 
-          <div style={{ position: 'absolute', top: '10%', left: '5%', fontSize: 'clamp(8rem, 20vw, 16rem)', fontFamily: 'Cormorant Garamond, serif', color: 'rgba(200,169,110,0.08)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none', zIndex: 1 }}>&ldquo;</div>
-          <div style={{ position: 'absolute', bottom: '8%', right: '5%', fontSize: 'clamp(8rem, 20vw, 16rem)', fontFamily: 'Cormorant Garamond, serif', color: 'rgba(200,169,110,0.08)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none', zIndex: 1 }}>&rdquo;</div>
+          <div style={{ position: 'absolute', top: '10%', left: '5%', fontSize: 'clamp(8rem, 20vw, 16rem)', fontFamily: 'Cormorant Garamond, serif', color: 'rgba(200,169,110,0.08)', lineHeight: 1, userSelect: 'none' }}>
+            “
+          </div>
+          <div style={{ position: 'absolute', bottom: '8%', right: '5%', fontSize: 'clamp(8rem, 20vw, 16rem)', fontFamily: 'Cormorant Garamond, serif', color: 'rgba(200,169,110,0.08)', lineHeight: 1, userSelect: 'none' }}>
+            ”
+          </div>
 
           <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', padding: '0 32px', maxWidth: '640px' }}>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', alignItems: 'center', margin: '0 auto 28px' }}>
@@ -355,12 +378,14 @@ function WeddingInvitation() {
             </div>
 
             <p className="font-display anim-fadeInUp" style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.75rem)', letterSpacing: '0.4em', color: 'var(--gold)', marginBottom: '20px' }}>✦ OUR STORY ✦</p>
-            <h2 className="font-display anim-fadeInUp delay-100" style={{ fontSize: 'clamp(1.6rem, 5vw, 2.8rem)', fontWeight: 500, color: 'var(--ivory)', letterSpacing: '0.2em', marginBottom: '36px' }}>OUR STORY</h2>
+            <h2 className="font-display anim-fadeInUp delay-100" style={{ fontSize: 'clamp(1.6rem, 5vw, 2.8rem)', fontWeight: 500, color: 'var(--ivory)', letterSpacing: '0.2em', marginBottom: '36px' }}>
+              A LOVE WRITTEN IN TIME
+            </h2>
 
             <div style={{ marginBottom: '32px' }}><GoldDivider light /></div>
 
-            <p className="font-serif anim-fadeInUp delay-300" style={{ fontSize: 'clamp(1rem, 2.8vw, 1.25rem)', fontStyle: 'italic', color: 'rgba(250,246,239,0.88)', lineHeight: 2, letterSpacing: '0.01em' }}>
-              "In a world full of fleeting moments, they found something timeless in each other. Their story is woven with smiles, late-night talks, shared dreams, and countless memories that brought two souls closer every single day."
+            <p className="font-serif anim-fadeInUp delay-300" style={{ fontSize: 'clamp(1rem, 2.8vw, 1.25rem)', fontStyle: 'italic', color: 'rgba(250,246,239,0.88)', lineHeight: 2, letterSpacing: '0.03em' }}>
+              "In a world full of fleeting moments, they found something timeless in each other. Their story is woven with smiles, late-night talks, shared dreams, and countless memories that brought them closer with every passing day."
             </p>
 
             <div style={{ marginTop: '36px', marginBottom: '28px' }}><GoldDivider light /></div>
@@ -381,12 +406,14 @@ function WeddingInvitation() {
           <div style={{ position: 'absolute', bottom: 20, right: 20, zIndex: 2, transform: 'scale(-1)' }}><FloralCorner color="#8B2438" size={80} /></div>
 
           <div style={{ position: 'relative', zIndex: 3, textAlign: 'center', padding: '0 24px', maxWidth: '560px', width: '100%' }}>
-            <p className="font-display anim-fadeInUp" style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.75rem)', letterSpacing: '0.4em', color: 'var(--gold-dark)', marginBottom: '16px' }}>✦ FIND US ✦</p>
-            <h2 className="font-display anim-fadeInUp delay-100" style={{ fontSize: 'clamp(1.6rem, 5vw, 2.6rem)', fontWeight: 600, color: 'var(--maroon)', letterSpacing: '0.2em', marginBottom: '28px' }}>FIND US</h2>
+            <p className="font-display anim-fadeInUp" style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.75rem)', letterSpacing: '0.4em', color: 'var(--gold-dark)', marginBottom: '16px' }}>✦ FIND US HERE ✦</p>
+            <h2 className="font-display anim-fadeInUp delay-100" style={{ fontSize: 'clamp(1.6rem, 5vw, 2.6rem)', fontWeight: 600, color: 'var(--maroon)', letterSpacing: '0.2em', marginBottom: '28px' }}>
+              VENUE
+            </h2>
 
             <div style={{ marginBottom: '28px' }}><GoldDivider /></div>
 
-            <div className="anim-scaleIn delay-200" style={{ background: 'var(--maroon)', padding: '32px 40px', marginBottom: '28px', position: 'relative', boxShadow: '0 20px 60px rgba(106,26,42,0.25)' }}>
+            <div className="anim-scaleIn delay-200" style={{ background: 'var(--maroon)', padding: '32px 40px', marginBottom: '28px', position: 'relative', boxShadow: '0 20px 60px rgba(106,26,42,0.14)' }}>
               <div style={{ position: 'absolute', top: -1, left: -1 }}><FloralCorner color="#DFC090" size={44} /></div>
               <div style={{ position: 'absolute', top: -1, right: -1, transform: 'scaleX(-1)' }}><FloralCorner color="#DFC090" size={44} /></div>
               <div style={{ position: 'absolute', bottom: -1, left: -1, transform: 'scaleY(-1)' }}><FloralCorner color="#DFC090" size={44} /></div>
